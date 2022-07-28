@@ -1,13 +1,23 @@
-class  extends StatefulWidget {
-  const ({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_clean_arch/presentation/theme_manager.dart';
+
+class MyApp extends StatefulWidget {
+  // Named constructor
+  MyApp._internal();
+
+  int appState = 0;
+
+  static final MyApp _instance = MyApp._internal(); // Singleton
+
+  factory MyApp() => _instance;
 
   @override
-  State<> createState() => _State();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _State extends State<> {
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(theme: getApplicationTheme());
   }
 }
